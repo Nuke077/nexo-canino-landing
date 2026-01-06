@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Pago Exitoso! - Nexo Canino</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/logo.jpg">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <section class="hero" style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="container" style="max-width: 700px; text-align: center;">
+            <!-- Icono de Éxito -->
+            <div
+                style="width: 120px; height: 120px; background: var(--success-green); border-radius: 50%; margin: 0 auto var(--spacing-lg); display: flex; align-items: center; justify-content: center; animation: scaleIn 0.5s ease-out;">
+                <i class="fas fa-check" style="font-size: 4rem; color: white;"></i>
+            </div>
+
+            <h1
+                style="color: var(--white); margin-bottom: var(--spacing-md); animation: fadeInUp 0.6s ease-out 0.2s both;">
+                ¡Pago Recibido Correctamente! 🎉
+            </h1>
+
+            <p
+                style="font-size: 1.25rem; color: var(--text-light); margin-bottom: var(--spacing-lg); animation: fadeInUp 0.6s ease-out 0.4s both;">
+                Bienvenido al <span class="text-gold">Programa de Transformación Nexo Canino</span>
+            </p>
+
+            <div
+                style="background: var(--secondary-slate); padding: var(--spacing-lg); border-radius: 16px; margin-bottom: var(--spacing-lg); border: 2px solid var(--accent-gold); animation: fadeInUp 0.6s ease-out 0.6s both;">
+                <h2 style="color: var(--accent-gold); margin-bottom: var(--spacing-md);">
+                    ¿Qué sigue ahora?
+                </h2>
+
+                <div style="text-align: left; color: var(--text-light);">
+                    <div style="display: flex; align-items: flex-start; margin-bottom: var(--spacing-md);">
+                        <div
+                            style="background: var(--accent-gold); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; font-weight: 700; color: var(--primary-dark);">
+                            1
+                        </div>
+                        <div>
+                            <h4 style="color: var(--white); margin-bottom: 0.5rem;">Revisa tu Email</h4>
+                            <p style="color: var(--text-muted);">Recibirás un email de confirmación en los próximos 5
+                                minutos con todos los detalles del programa.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: flex-start; margin-bottom: var(--spacing-md);">
+                        <div
+                            style="background: var(--accent-gold); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; font-weight: 700; color: var(--primary-dark);">
+                            2
+                        </div>
+                        <div>
+                            <h4 style="color: var(--white); margin-bottom: 0.5rem;">Te Contactaremos por WhatsApp</h4>
+                            <p style="color: var(--text-muted);">Nuestro equipo te escribirá en las próximas 24 horas
+                                para coordinar tu primera sesión.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: flex-start;">
+                        <div
+                            style="background: var(--accent-gold); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; font-weight: 700; color: var(--primary-dark);">
+                            3
+                        </div>
+                        <div>
+                            <h4 style="color: var(--white); margin-bottom: 0.5rem;">¡Comienza tu Transformación!</h4>
+                            <p style="color: var(--text-muted);">Prepárate para 6 semanas que cambiarán la vida de tu
+                                perro (y la tuya) para siempre.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contacto Directo -->
+            <div
+                style="background: var(--primary-charcoal); padding: var(--spacing-md); border-radius: 12px; margin-bottom: var(--spacing-lg);">
+                <p style="color: var(--text-light); margin-bottom: var(--spacing-sm);">
+                    <strong>¿Tienes alguna pregunta urgente?</strong>
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/34667716180" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Principal
+                    </a>
+                    <a href="https://wa.me/34687082952" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Alternativo
+                    </a>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn btn-secondary" style="display: inline-flex;">
+                <i class="fas fa-home"></i> Volver al Inicio
+            </a>
+        </div>
+    </section>
+
+    <style>
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body>
+
+</html>

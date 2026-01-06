@@ -268,10 +268,13 @@
                 </div>
 
                 <div class="text-center mt-lg">
-                    <a href="#contacto" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.5rem 3.5rem;">
+                    <a href="pago.html" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.5rem 3.5rem;">
                         <i class="fas fa-rocket"></i>
                         SÍ, QUIERO APLICAR PARA UNA PLAZA FUNDADORA
                     </a>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: var(--spacing-sm);">
+                        <i class="fas fa-lock"></i> Pago seguro con tarjeta o PayPal
+                    </p>
                 </div>
             </div>
         </div>
@@ -318,19 +321,91 @@
                     y descubre si tu perro es candidato para el Programa Fundadores por 297€.
                 </p>
 
+                <!-- Opciones de Contacto -->
                 <div
-                    style="display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
-                    <a href="https://wa.me/34XXXXXXXXX?text=Hola%2C%20quiero%20solicitar%20mi%20diagn%C3%B3stico%20gratuito%20para%20el%20Programa%20Nexo%20Canino"
-                        class="btn btn-primary" target="_blank" style="font-size: 1.25rem; padding: 1.5rem 3rem;">
-                        <i class="fab fa-whatsapp"></i>
-                        CONTACTAR POR WHATSAPP
-                    </a>
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-lg); max-width: 900px; margin-left: auto; margin-right: auto;">
 
-                    <p style="color: var(--text-muted); font-size: 0.875rem;">
-                        <i class="fas fa-lock"></i>
-                        Tu información está 100% segura. Respetamos tu privacidad.
+                    <!-- WhatsApp Principal -->
+                    <div
+                        style="background: var(--secondary-slate); padding: var(--spacing-md); border-radius: 12px; border: 2px solid var(--accent-gold);">
+                        <h4 style="color: var(--accent-gold); margin-bottom: var(--spacing-sm);">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Principal
+                        </h4>
+                        <p
+                            style="color: var(--text-light); margin-bottom: var(--spacing-sm); font-size: 1.125rem; font-weight: 600;">
+                            +34 667 716 180
+                        </p>
+                        <a href="https://wa.me/34667716180?text=Hola%2C%20quiero%20solicitar%20mi%20diagn%C3%B3stico%20gratuito%20para%20el%20Programa%20Nexo%20Canino"
+                            class="btn btn-primary" target="_blank" style="width: 100%; margin-top: var(--spacing-sm);">
+                            <i class="fab fa-whatsapp"></i>
+                            CONTACTAR AHORA
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp Secundario -->
+                    <div
+                        style="background: var(--secondary-slate); padding: var(--spacing-md); border-radius: 12px; border: 2px solid var(--accent-burnt-orange);">
+                        <h4 style="color: var(--accent-burnt-orange); margin-bottom: var(--spacing-sm);">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Alternativo
+                        </h4>
+                        <p
+                            style="color: var(--text-light); margin-bottom: var(--spacing-sm); font-size: 1.125rem; font-weight: 600;">
+                            +34 687 082 952
+                        </p>
+                        <a href="https://wa.me/34687082952?text=Hola%2C%20quiero%20solicitar%20mi%20diagn%C3%B3stico%20gratuito%20para%20el%20Programa%20Nexo%20Canino"
+                            class="btn btn-secondary" target="_blank"
+                            style="width: 100%; margin-top: var(--spacing-sm);">
+                            <i class="fab fa-whatsapp"></i>
+                            CONTACTAR AHORA
+                        </a>
+                    </div>
+
+                    <!-- Email -->
+                    <div style="background: var(--secondary-slate); padding: var(--spacing-md); border-radius: 12px;">
+                        <h4 style="color: var(--white); margin-bottom: var(--spacing-sm);">
+                            <i class="fas fa-envelope"></i> Email
+                        </h4>
+                        <p
+                            style="color: var(--text-light); margin-bottom: var(--spacing-sm); font-size: 1rem; word-break: break-word;">
+                            nexocaninobcn@gmail.com
+                        </p>
+                        <a href="mailto:nexocaninobcn@gmail.com?subject=Consulta%20Programa%20Nexo%20Canino"
+                            class="btn btn-secondary" target="_blank"
+                            style="width: 100%; margin-top: var(--spacing-sm);">
+                            <i class="fas fa-envelope"></i>
+                            ENVIAR EMAIL
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Calendly Widget -->
+                <div
+                    style="background: var(--primary-charcoal); padding: var(--spacing-lg); border-radius: 16px; margin-bottom: var(--spacing-lg); border: 2px solid var(--accent-gold);">
+                    <h3 style="color: var(--accent-gold); margin-bottom: var(--spacing-md);">
+                        <i class="fas fa-calendar-check"></i> Agenda tu Diagnóstico Gratuito
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: var(--spacing-md);">
+                        Elige el día y hora que mejor te convenga. Recibirás confirmación automática por email.
+                    </p>
+
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget"
+                        data-url="https://calendly.com/nexocaninobcn/diagnostico-gratuito?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c9a961"
+                        style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                        async></script>
+                    <!-- Calendly inline widget end -->
+
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: var(--spacing-md);">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Nota:</strong> Si el calendario no carga, contáctanos directamente por WhatsApp o email.
                     </p>
                 </div>
+
+                <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: var(--spacing-md);">
+                    <i class="fas fa-lock"></i>
+                    Tu información está 100% segura. Respetamos tu privacidad.
+                </p>
 
                 <div
                     style="background: var(--secondary-slate); padding: var(--spacing-md); border-radius: 12px; max-width: 600px; margin: 0 auto;">
@@ -352,7 +427,7 @@
                 <h3 style="color: var(--white); margin-bottom: var(--spacing-md);">
                     Última Oportunidad para Acceder al Precio Fundador
                 </h3>
-                <a href="#contacto" class="btn btn-primary">
+                <a href="pago.html" class="btn btn-primary">
                     <i class="fas fa-paw"></i>
                     SÍ, QUIERO APLICAR POR 297€
                 </a>
@@ -391,17 +466,19 @@
                 <div class="footer-section">
                     <h4>Síguenos</h4>
                     <div class="social-links">
-                        <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+                        <a href="https://www.instagram.com/nexocaninobcn/" target="_blank" class="social-icon"
+                            aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="https://www.tiktok.com/@nexocaninobcn" target="_blank" class="social-icon"
+                            aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://wa.me/34XXXXXXXXX" target="_blank" class="social-icon" aria-label="WhatsApp">
+                        <a href="https://wa.me/34667716180" target="_blank" class="social-icon" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://youtube.com" target="_blank" class="social-icon" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
+                        <a href="mailto:nexocaninobcn@gmail.com" target="_blank" class="social-icon" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
