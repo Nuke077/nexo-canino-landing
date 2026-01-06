@@ -1,0 +1,18 @@
+{
+  "name": "nexo-canino-landing",
+  "version": "1.0.0",
+  "description": "Landing page premium para Nexo Canino - Programa de adiestramiento canino en Barcelona",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "landing-page",
+    "adiestramiento-canino",
+    "barcelona",
+    "perros-reactivos"
+  ],
+  "author": "Nexo Canino",
+  "license": "MIT"
+}
