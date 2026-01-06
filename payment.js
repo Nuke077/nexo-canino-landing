@@ -208,10 +208,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     panel.style.display = 'none';
                 });
 
-                if (targetTab === 'stripe') {
-                    document.getElementById('stripe-panel').style.display = 'block';
+                if (targetTab === 'card') {
+                    document.getElementById('card-panel').style.display = 'block';
                 } else if (targetTab === 'paypal') {
                     document.getElementById('paypal-panel').style.display = 'block';
+                } else if (targetTab === 'stripe') {
+                    document.getElementById('stripe-panel').style.display = 'block';
                 }
             });
         });
