@@ -25,46 +25,73 @@ if (document.getElementById('payment-form')) {
 }
 
 function initializeStripe() {
-    // Inicializar Stripe
-    stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    try {
+        // Verificar que Stripe esté disponible
+        if (typeof Stripe === 'undefined') {
+            console.warn('Stripe no está disponible. Configura tu API key.');
+            return;
+        }
 
-    // Crear elementos de Stripe
-    const elements = stripe.elements();
-
-    // Estilo personalizado para el campo de tarjeta
-    const cardStyle = {
-        base: {
-            color: '#f5f5f5',
-            fontFamily: '"Inter", sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#a8b2bb'
+        // Verificar que la key no sea el placeholder
+        if (STRIPE_PUBLISHABLE_KEY === 'pk_test_TU_STRIPE_KEY_AQUI' || !STRIPE_PUBLISHABLE_KEY) {
+            console.warn('Stripe: Configura tu Publishable Key en payment.js');
+            // Ocultar el campo de tarjeta de Stripe
+            const cardElementContainer = document.getElementById('card-element');
+            if (cardElementContainer) {
+                cardElementContainer.innerHTML = '<p style="color: #c9a961; text-align: center; padding: 2rem;">⚠️ Stripe no configurado. Por favor contacta por WhatsApp para pagar.</p>';
             }
-        },
-        invalid: {
-            color: '#d97742',
-            iconColor: '#d97742'
+            return;
         }
-    };
 
-    // Crear el elemento de tarjeta
-    cardElement = elements.create('card', { style: cardStyle });
-    cardElement.mount('#card-element');
+        // Inicializar Stripe
+        stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
 
-    // Manejar errores en tiempo real
-    cardElement.on('change', function (event) {
-        const displayError = document.getElementById('card-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
+        // Crear elementos de Stripe
+        const elements = stripe.elements();
+
+        // Estilo personalizado para el campo de tarjeta
+        const cardStyle = {
+            base: {
+                color: '#f5f5f5',
+                fontFamily: '"Inter", sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#a8b2bb'
+                }
+            },
+            invalid: {
+                color: '#d97742',
+                iconColor: '#d97742'
+            }
+        };
+
+        // Crear el elemento de tarjeta
+        cardElement = elements.create('card', { style: cardStyle });
+        cardElement.mount('#card-element');
+
+        // Manejar errores en tiempo real
+        cardElement.on('change', function (event) {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Manejar el submit del formulario
+        const form = document.getElementById('payment-form');
+        if (form) {
+            form.addEventListener('submit', handleStripePayment);
         }
-    });
-
-    // Manejar el submit del formulario
-    const form = document.getElementById('payment-form');
-    form.addEventListener('submit', handleStripePayment);
+    } catch (error) {
+        console.error('Error inicializando Stripe:', error);
+        const cardElementContainer = document.getElementById('card-element');
+        if (cardElementContainer) {
+            cardElementContainer.innerHTML = '<p style="color: #d97742;">Error al cargar Stripe. Contacta por WhatsApp.</p>';
+        }
+    }
 }
 
 async function handleStripePayment(event) {
@@ -131,55 +158,66 @@ if (document.getElementById('paypal-button-container')) {
 }
 
 function initializePayPal() {
-    paypal.Buttons({
-        // Configurar la creación de la orden
-        createOrder: function (data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    description: 'Programa de Transformación Nexo Canino - 6 Semanas',
-                    amount: {
-                        currency_code: CURRENCY,
-                        value: PROGRAM_PRICE.toString()
-                    }
-                }],
-                application_context: {
-                    shipping_preference: 'NO_SHIPPING'
-                }
-            });
-        },
-
-        // Manejar la aprobación del pago
-        onApprove: function (data, actions) {
-            return actions.order.capture().then(function (details) {
-                // Pago exitoso
-                console.log('Pago completado por ' + details.payer.name.given_name);
-
-                // Enviar detalles al backend (opcional)
-                // fetch('TU_BACKEND_URL/paypal-success', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(details)
-                // });
-
-                // Redirigir a página de éxito
-                window.location.href = 'exito.html?order_id=' + data.orderID;
-            });
-        },
-
-        // Manejar errores
-        onError: function (err) {
-            console.error('Error en PayPal:', err);
-            alert('Hubo un error con PayPal. Por favor intenta de nuevo o usa tarjeta de crédito.');
-        },
-
-        // Estilo del botón
-        style: {
-            color: 'gold',
-            shape: 'rect',
-            label: 'pay',
-            height: 50
+    try {
+        // Verificar que PayPal esté disponible
+        if (typeof paypal === 'undefined') {
+            console.warn('PayPal no está disponible. Configura tu Client ID.');
+            const paypalContainer = document.getElementById('paypal-button-container');
+            if (paypalContainer) {
+                paypalContainer.innerHTML = '<p style="color: #c9a961; text-align: center; padding: 2rem;">⚠️ PayPal no configurado. Por favor contacta por WhatsApp para pagar.</p>';
+            }
+            return;
         }
-    }).render('#paypal-button-container');
+
+        paypal.Buttons({
+            // Configurar la creación de la orden
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Programa de Transformación Nexo Canino - 6 Semanas',
+                        amount: {
+                            currency_code: CURRENCY,
+                            value: PROGRAM_PRICE.toString()
+                        }
+                    }],
+                    application_context: {
+                        shipping_preference: 'NO_SHIPPING'
+                    }
+                });
+            },
+
+            // Manejar la aprobación del pago
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    // Pago exitoso
+                    console.log('Pago completado por ' + details.payer.name.given_name);
+
+                    // Redirigir a página de éxito
+                    window.location.href = 'exito.html?order_id=' + data.orderID;
+                });
+            },
+
+            // Manejar errores
+            onError: function (err) {
+                console.error('Error en PayPal:', err);
+                alert('Hubo un error con PayPal. Por favor intenta de nuevo o usa tarjeta de crédito.');
+            },
+
+            // Estilo del botón
+            style: {
+                color: 'gold',
+                shape: 'rect',
+                label: 'pay',
+                height: 50
+            }
+        }).render('#paypal-button-container');
+    } catch (error) {
+        console.error('Error inicializando PayPal:', error);
+        const paypalContainer = document.getElementById('paypal-button-container');
+        if (paypalContainer) {
+            paypalContainer.innerHTML = '<p style="color: #d97742;">Error al cargar PayPal. Contacta por WhatsApp.</p>';
+        }
+    }
 }
 
 // ========== PAYMENT TABS ==========
